@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="1100.0" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pjv.evolution.PJVEvolutionController">
+   <children>
+      <GridPane layoutX="441.0" layoutY="283.0" prefHeight="700.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="791.0" minWidth="10.0" prefWidth="761.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="543.0" minWidth="10.0" prefWidth="339.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <GridPane layoutX="70.0" layoutY="294.0" prefHeight="700.0" prefWidth="339.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="169.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="216.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="336.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane style="-fx-background-color: #f0f0f0;">
+                           <children>
+                              <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generation:" />
+                              <Text fx:id="generationCount" layoutX="115.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="110.0" />
+                              <ProgressBar fx:id="generationBar" layoutX="14.0" layoutY="49.0" prefWidth="200.0" progress="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane style="-fx-background-color: #e6e6e6;" GridPane.rowIndex="1">
+                           <children>
+                              <PieChart fx:id="vertexCoverPie" labelsVisible="false" layoutX="14.0" layoutY="42.0" legendSide="RIGHT" prefHeight="161.0" prefWidth="231.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                              <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vertex Cover:" />
+                              <Text fx:id="vertexCover" layoutX="121.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.000%" textAlignment="CENTER" wrappingWidth="96.2978515625" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane style="-fx-background-color: #f0f0f0;" GridPane.rowIndex="2">
+                           <children>
+                              <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fitness:" />
+                              <LineChart fx:id="fitnessChart" createSymbols="false" layoutX="14.0" layoutY="41.0" prefHeight="273.0" prefWidth="311.0" style="-fx-stroke-width: 0.2px;" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="41.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                              <Text fx:id="fitness" layoutX="121.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="CENTER" wrappingWidth="96.2978515625" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="50.0" prefWidth="339.0" style="-fx-background-color: #e6e6e6;" GridPane.rowIndex="3">
+                           <children>
+                              <Text layoutX="27.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uncovered Edges: " wrappingWidth="127.763671875" AnchorPane.leftAnchor="14.0" />
+                              <Text layoutX="27.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Covered Edges:" AnchorPane.leftAnchor="14.0" />
+                              <Text fx:id="uncoveredEdges" layoutX="142.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="76.90185546875" />
+                              <Text fx:id="coveredEdges" layoutX="142.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="76.90185546875" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="344.0" minHeight="10.0" prefHeight="129.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="575.0" minHeight="10.0" prefHeight="571.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="281.0" layoutY="40.0" prefHeight="170.0" prefWidth="761.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" percentWidth="38.0" prefWidth="288.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" percentWidth="38.0" prefWidth="284.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.0" minWidth="10.0" percentWidth="30.0" prefWidth="187.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <AnchorPane style="-fx-background-color: #f0f0f0;">
+                                 <children>
+                                    <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Generations:" />
+                                    <Text layoutX="14.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Population Size:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="70.0" />
+                                    <Text fx:id="generationSize" layoutX="230.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1000" textAlignment="RIGHT" wrappingWidth="60.0" AnchorPane.rightAnchor="14.0" />
+                                    <Text fx:id="populationSize" layoutX="230.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="RIGHT" wrappingWidth="60.0" AnchorPane.rightAnchor="14.0" />
+                                    <Slider fx:id="generationSizeSlider" blockIncrement="1.0" layoutX="15.0" layoutY="29.0" max="20000.0" min="1.0" prefHeight="25.0" value="1000.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                    <Slider fx:id="populationSizeSlider" blockIncrement="1.0" layoutX="14.0" layoutY="85.0" max="1000.0" min="40.0" prefHeight="25.0" value="100.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane style="-fx-background-color: #f0f0f0;" GridPane.columnIndex="1">
+                                 <children>
+                                    <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mutation Rate:" AnchorPane.leftAnchor="14.0" />
+                                    <Text layoutX="17.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crossover Probability:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="70.0" />
+                                    <Text fx:id="crossoverProbability" layoutX="230.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25%" textAlignment="RIGHT" wrappingWidth="60.0" AnchorPane.rightAnchor="14.0" />
+                                    <Text fx:id="mutationRate" layoutX="230.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1%" textAlignment="RIGHT" wrappingWidth="60.0" AnchorPane.rightAnchor="14.0" />
+                                    <Slider fx:id="mutationRateSlider" blockIncrement="1.0" layoutX="20.0" layoutY="29.0" prefHeight="25.0" value="1.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                    <Slider fx:id="crossoverProbabilitySlider" blockIncrement="1.0" layoutX="15.0" layoutY="85.0" prefHeight="25.0" value="25.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane style="-fx-background-color: #f0f0f0;" GridPane.columnIndex="2">
+                                 <children>
+                                    <ChoiceBox fx:id="mapSelect" layoutX="14.0" layoutY="23.0" prefWidth="150.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="29.0" />
+                                    <Button fx:id="start" layoutX="14.0" layoutY="83.0" mnemonicParsing="false" onAction="#startEvolution" prefHeight="25.0" prefWidth="119.0" text="Start" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="77.0" />
+                                    <Button fx:id="stop" layoutX="118.0" layoutY="84.0" mnemonicParsing="false" onAction="#stopButtonClicked" prefHeight="25.0" prefWidth="62.0" text="Stop" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="77.0" />
+                                    <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a map:" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane style="-fx-background-color: #696969;" GridPane.rowIndex="1">
+                     <children>
+                        <ScrollPane pannable="true" prefHeight="1000.0" prefViewportHeight="571.0" prefViewportWidth="761.0" style="-fx-background-color: #696969;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <AnchorPane style="-fx-background-color: #696969;">
+                                 <children>
+                                    <Canvas fx:id="mapCanvas" height="569.0" width="759.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Text fill="#FFA500" layoutX="602.0" layoutY="26.0" strokeType="OUTSIDE" text="Uncovered Edges" textAlignment="RIGHT" wrappingWidth="142.6572265625" AnchorPane.rightAnchor="14.0">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#ADFF2F" layoutX="626.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Covered Edges" textAlignment="RIGHT" wrappingWidth="119.0" AnchorPane.rightAnchor="14.0">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#0000FF" layoutX="628.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Disabled Nodes" AnchorPane.rightAnchor="14.0">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#FF4500" layoutX="632.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enabled Nodes" AnchorPane.rightAnchor="14.0">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <AnchorPane fx:id="firstPopulationPanel" layoutX="280.0" layoutY="185.0" opacity="0.8" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: orange;" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                       <children>
+                                          <Text layoutX="136.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GENERATING THE FIRST POPULATION">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Text>
+                                          <Text layoutX="336.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="please wait..." />
+                                          <Text fill="#000000e8" layoutX="61.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(it is not possible to stop the evolution with the stop button right now, it will be stopped once the first population is generated)">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children></AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+      <Line endX="100.0" opacity="0.5" rotate="90.0" scaleX="3.5" scaleY="1.2" startX="-100.0" stroke="#4a4141" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="238.0" AnchorPane.topAnchor="350.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.4903846153846154" startY="0.5192307692307692">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Line>
+   </children>
+</AnchorPane>
